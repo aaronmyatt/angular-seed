@@ -1,0 +1,9 @@
+{
+  "siteTitle": "Remin",
+  "404": {
+    "layout": false
+  },
+  "index": {
+    "pageTitle": "Welcome to Remin!"
+  }
+}

@@ -1,0 +1,12 @@
+doctype
+html.no-js(lang="" ng-app="app")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    title= pageTitle || siteTitle
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" src="app.css")
+  body
+    != yield
+
+    script(src="app.min.js")
