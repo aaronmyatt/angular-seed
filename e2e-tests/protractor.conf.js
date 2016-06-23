@@ -11,12 +11,15 @@ exports.config = {
     'browserName': 'chrome'
   },
 
-  baseUrl: 'http://localhost:9000/',
+  baseUrl: 'http://localhost:9000',
 
   framework: 'jasmine',
 
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000
-  }
+  },
+  onPrepare: function() {
+    browser.ignoreSynchronization = true;
+  },
 
 };

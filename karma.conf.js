@@ -2,17 +2,18 @@
 module.exports = function(config) {
   config.set({
 
-    basePath: './app',
+    basePath: './www',
 
     files: [
-      '../node_modules/angular/angular.js',
-      '../node_modules/angular-route/angular-route.js',
-      '../node_modules/angular-mocks/angular-mocks.js',
-      'components/**/*.js',
-      'view*/**/*.js'
+      './test/**/*.js', 
+      'app.min.js'
     ],
 
     autoWatch: true,
+
+    reporters: ['progress'],
+
+    port: 9876,
 
     frameworks: ['jasmine'],
 
