@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="" ng-app="app" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title></title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="app.css"></head><body><h1>EvEmitter</h1><p><em>Lil&#39; event emitter</em> — add a little pub/sub</p>
+<p>EvEmitter adds publish/subscribe pattern to a browser class. It&#39;s a smaller version of <a href="https://github.com/Olical/EventEmitter">Olical/EventEmitter</a>. That EventEmitter is full featured, widely used, and great. This EvEmitter has just the base event functionality to power the event API in libraries like <a href="http://isotope.metafizzy.co">Isotope</a>, <a href="http://flickity.metafizzy.co">Flickity</a>, <a href="http://masonry.desandro.com">Masonry</a>, and <a href="http://imagesloaded.desandro.com">imagesLoaded</a>.</p>
+<h2>API</h2><pre><code class="language-js">// Inherit prototype, IE8+
+MyClass.prototype = new EvEmitter();
+
+// Inherit prototype, IE9+
+MyClass.prototype = Object.create( EvEmitter.prototype );
+
+// Mixin prototype
+_.extend( MyClass.prototype, EvEmitter.prototype );
+
+// single instance
+var emitter = new EventEmitter();
+</code></pre>
+<h3>on</h3><p>Add an event listener.</p>
+<pre><code class="language-js">emitter.on( eventName, listener )
+</code></pre>
+<ul>
+<li><code>eventName</code> - <em>String</em> - name of the event</li>
+<li><code>listener</code> - <em>Function</em></li>
+</ul>
+<h3>off</h3><p>Remove an event listener.</p>
+<pre><code class="language-js">emitter.off( eventName, listener )
+</code></pre>
+<h3>once</h3><p>Add an event listener to be triggered only once.</p>
+<pre><code class="language-js">emitter.once( eventName, listener )
+</code></pre>
+<h3>emitEvent</h3><p>Trigger an event.</p>
+<pre><code class="language-js">emitter.emitEvent( eventName, args )
+</code></pre>
+<ul>
+<li><code>eventName</code> - <em>String</em> - name of the event</li>
+<li><code>args</code> - <em>Array</em> - arguments passed to listeners</li>
+</ul>
+<h2>Code example</h2><pre><code class="language-js">// create event emitter
+var emitter = new EventEmitter();
+
+// listeners
+function hey( a, b, c ) {
+  console.log( &#39;Hey&#39;, a, b, c )
+}
+
+function ho( a, b, c ) {
+  console.log( &#39;Ho&#39;, a, b, c )
+}
+
+function letsGo( a, b, c ) {
+  console.log( &#39;Lets go&#39;, a, b, c )
+}
+
+// bind listeners
+emitter.on( &#39;rock&#39;, hey )
+emitter.once( &#39;rock&#39;, ho )
+// trigger letsGo once
+emitter.on( &#39;rock&#39;, letsGo )
+
+// emit event
+emitter.emitEvent( &#39;rock&#39;, [ 1, 2, 3 ] )
+// =&gt; &#39;Hey&#39;, 1, 2, 3
+// =&gt; &#39;Ho&#39;, 1, 2, 3
+// =&gt; &#39;Lets go&#39;, 1, 2, 3
+
+// unbind
+emitter.off( &#39;rock&#39;, ho )
+
+emitter.emitEvent( &#39;rock&#39;, [ 4, 5, 6 ] )
+// =&gt; &#39;Hey&#39; 4, 5, 6
+</code></pre>
+<h2>License</h2><p>EvEmitter is released under the <a href="http://desandro.mit-license.org/">MIT License</a>. Have at it.</p><script src="lib/bricklayer/dist/bricklayer.js"></script><script src="lib/angular/angular.js"></script><script src="lib/angular-route/angular-route.js"></script><script src="lib/angular-bricklayer/dist/angular-bricklayer.js"></script><script src="app.routes.js"></script><script src="app.module.js"></script><script src="scripts/index/index.controller.js"></script></body></html>

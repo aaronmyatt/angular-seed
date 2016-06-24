@@ -5,8 +5,16 @@ html.no-js(lang="" ng-app="app")
     meta(http-equiv="X-UA-Compatible" content="IE=edge")
     title= pageTitle || siteTitle
     meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet" src="app.css")
+    link(rel="stylesheet" href="app.css")
   body
     != yield
 
-    script(src="app.min.js")
+
+    script(src="lib/bricklayer/dist/bricklayer.js")
+    script(src="lib/angular/angular.js")
+    script(src="lib/angular-route/angular-route.js")
+    script(src="lib/angular-bricklayer/dist/angular-bricklayer.js")
+
+    script(src='app.routes.js')
+    script(src="app.module.js")
+    script(src="scripts/index/index.controller.js")

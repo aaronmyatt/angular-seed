@@ -1,0 +1,24 @@
+{
+  "name": "Reminisce",
+  "description": "A place to reminisce about those lost.",
+  "main": "app",
+  "authors": [
+    "Aaron Myatt <aaronmyatt@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/aaronmyatt/remin",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.7",
+    "angular-route": "^1.5.7",
+    "angular-mocks": "^1.5.7",
+    "angular-bricklayer": "^1.1.0"
+  }
+}

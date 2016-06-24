@@ -4,7 +4,7 @@ exports.config = {
   allScriptsTimeout: 11000,
 
   specs: [
-    '*.js'
+    '*.spec.js'
   ],
 
   capabilities: {
@@ -20,6 +20,6 @@ exports.config = {
   },
   onPrepare: function() {
     browser.ignoreSynchronization = true;
-  },
+  }
 
 };

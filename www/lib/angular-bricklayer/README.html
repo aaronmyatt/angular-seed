@@ -1,0 +1,85 @@
+<!DOCTYPE html><html lang="" ng-app="app" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title></title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="app.css"></head><body><h1>angular-bricklayer</h1><p>AngularJS module for <a href="https://github.com/ademilter/bricklayer">ademilter&#39;s bricklayer</a>, a lightweight &amp; independent cascading grid layout library</p>
+<p><a href="https://badge.fury.io/js/angular-bricklayer"><img src="https://badge.fury.io/js/angular-bricklayer.svg" alt="npm version"></a>
+<a href="https://badge.fury.io/bo/angular-bricklayer"><img src="https://badge.fury.io/bo/angular-bricklayer.svg" alt="Bower version"></a></p>
+<h2>Demos</h2><ul>
+<li><a href="https://rawgit.com/JohnnyTheTank/angular-bricklayer/master/demo/index.html">Simple demo</a></li>
+<li><a href="http://plnkr.co/edit/mo3G36">on Plnkr</a></li>
+</ul>
+<p><a href="http://ademilter.github.io/bricklayer"><img src="https://rawgit.com/ademilter/bricklayer/master/assets/screenshot.gif" alt="Image"></a></p>
+<h2>Installation</h2><ol>
+<li><p>Install via either <a href="http://bower.io/">bower</a>, <a href="https://www.npmjs.com/">npm</a> or downloaded files:</p>
+<ol>
+<li>via bower: <code>bower install --save angular-bricklayer</code></li>
+<li>via npm: <code>npm install --save angular-bricklayer</code></li>
+<li>via CDN (jsDelivr)</li>
+<li>via <a href="https://github.com/JohnnyTheTank/angular-bricklayer/zipball/master">downloaded files</a></li>
+</ol>
+</li>
+<li><p>Include dependencies and angular-bricklayer in your HTML.</p>
+<ol>
+<li>When using bower<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;bower_components/bricklayer/dist/bricklayer.min.css&quot;&gt;
+&lt;script src=&quot;bower_components/bricklayer/dist/bricklayer.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;bower_components/angular-bricklayer/dist/angular-bricklayer.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>When using npm<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;node_modules/bricklayer/dist/bricklayer.min.css&quot;&gt;
+&lt;script src=&quot;node_modules/bricklayer/dist/bricklayer.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;node_modules/angular-bricklayer/dist/angular-bricklayer.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>When using CDN<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;//cdnjs.cloudflare.com/ajax/libs/bricklayer/0.4.1/bricklayer.min.css&quot;&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/bricklayer/0.4.1/bricklayer.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;//cdn.jsdelivr.net/angular.bricklayer/1.1.0/angular-bricklayer.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+<li>When using downloaded files<pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;YOUR_PATH/bricklayer.min.css&quot;&gt;
+&lt;script src=&quot;YOUR_PATH/bricklayer.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;YOUR_PATH/angular-bricklayer.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+</li>
+</ol>
+</li>
+<li><p>Add <strong><code>jtt_bricklayer</code></strong> to your application&#39;s module dependencies, like this:</p>
+<pre><code class="language-javascript"> angular.module(&#39;app&#39;, [&#39;jtt_bricklayer&#39;]);
+</code></pre>
+</li>
+</ol>
+<h2>Usage</h2><ul>
+<li>Create a simple list:</li>
+</ul>
+<pre><code class="language-html">&lt;div class=&quot;bricklayer&quot;&gt;
+  &lt;div&gt;Your item&lt;/div&gt;
+  &lt;div&gt;Your another item&lt;/div&gt;
+  &lt;div&gt;Your another but long item&lt;/div&gt;
+  &lt;div&gt;Your another but very short item&lt;/div&gt;
+  &lt;div&gt;Your one more item&lt;/div&gt;
+  &lt;div&gt;Your smallest item&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<ul>
+<li>Define <strong>bricklayer column size</strong>:</li>
+</ul>
+<pre><code class="language-css">@media screen and (min-width: 1200px) {
+  .bricklayer-column-sizer {
+    /* divide by 3. */
+    width: 33.3%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .bricklayer-column-sizer {
+    /* divide by 2. */
+    width: 50%;
+  }
+}
+</code></pre>
+<h2>Add bricks dynamically</h2><p>Use <code>bricklayer-append</code> or <code>bricklayer-prepend</code> as attribute, class or element name inside of your <code>bricklayer</code> instance</p>
+<pre><code class="language-html">&lt;div class=&quot;bricklayer&quot;&gt;
+    &lt;!-- append --&gt;
+    &lt;div bricklayer-append ng-repeat=&quot;item in appendData&quot;&gt;&lt;/div&gt;
+
+    &lt;!-- prepend --&gt;
+    &lt;div bricklayer-prepend ng-repeat=&quot;item in prependData&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<h1>License</h1><p>MIT</p><script src="lib/bricklayer/dist/bricklayer.js"></script><script src="lib/angular/angular.js"></script><script src="lib/angular-route/angular-route.js"></script><script src="lib/angular-bricklayer/dist/angular-bricklayer.js"></script><script src="app.routes.js"></script><script src="app.module.js"></script><script src="scripts/index/index.controller.js"></script></body></html>
