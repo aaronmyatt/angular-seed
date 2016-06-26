@@ -1,0 +1,18 @@
+script(src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js")
+script(src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js")
+
+script.
+    // Initialize Firebase
+    console.log('Firebase.init');
+
+    var config = {
+        apiKey: "AIzaSyAV8adlVmIQBuhSR-TRtr7kr8310k2CPBI",
+    authDomain: "remin-f1785.firebaseapp.com",
+    databaseURL: "https://remin-f1785.firebaseio.com",
+    storageBucket: "remin-f1785.appspot.com"
+    };
+    firebase.initializeApp(config);
+
+    var storage = firebase.storage();
+    var storageRef = storage.ref();
+    firebase.auth().signInWithEmailAndPassword('aaronmyatt@gmail.com', '1234qwer');
