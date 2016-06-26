@@ -9,12 +9,15 @@ html.no-js(lang="" ng-app="app")
   body
     != yield
 
+    script(src="lib/angular/angular.js")
+
+    include firebase.jade
 
     script(src="lib/bricklayer/dist/bricklayer.js")
-    script(src="lib/angular/angular.js")
-    script(src="lib/angular-route/angular-route.js")
     script(src="lib/angular-bricklayer/dist/angular-bricklayer.js")
+    script(src="lib/angular-route/angular-route.js")
 
+    script(src="scripts/brick-service/brick.service.js")
     script(src='app.routes.js')
     script(src="app.module.js")
     script(src="scripts/index/index.controller.js")
