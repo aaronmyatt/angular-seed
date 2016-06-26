@@ -7,25 +7,19 @@
         .module('app')
         .controller('IndexController', IndexController);
 
-    IndexController.$inject = []
-    function IndexController () {
-
-        this.bricks = [
-            "Your item",
-            "Your another item",
-            "Your another but long item",
-            "Your another but very short item",
-            "Your one more item",
-        ]
-
-
-
-
-
-
+    IndexController.$inject = ["BrickService"];
+    function IndexController (BrickService) {
+        var vm = this;
+        vm.bricks = [];
 
         function init(){
-            console.log('IndexController.init')
+            console.log('IndexController.init');
+            console.log(vm);
+
+            BrickService.getBricks().then(function(data){
+                console.log('qUrls: ', data);
+                vm.bricks = data;
+            });
         }
         init();
     }
