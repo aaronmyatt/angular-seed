@@ -13,8 +13,8 @@ script.
         storageBucket: "remin-f1785.appspot.com"
     };
 
-    var app = firebase.initializeApp(config);
-    var auth = app.auth();
+    var Firebase = firebase.initializeApp(config);
+    var auth = Firebase.auth();
 
     var storage = firebase.storage();
     var storageRef = storage.ref();
