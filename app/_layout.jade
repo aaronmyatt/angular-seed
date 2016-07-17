@@ -7,17 +7,25 @@ html.no-js(lang="" ng-app="app")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     link(rel="stylesheet" href="app.css")
   body
+    div(id="quickstart-sign-in-status")
+    div(id="quickstart-sign-in")
+    div(id="firebaseui-auth-container")
+
     != yield
 
     script(src="lib/angular/angular.js")
 
-    include firebase.jade
+    include firebase/firebase.jade
 
     script(src="lib/bricklayer/dist/bricklayer.js")
     script(src="lib/angular-bricklayer/dist/angular-bricklayer.js")
     script(src="lib/angular-route/angular-route.js")
 
-    script(src="scripts/brick-service/brick.service.js")
-    script(src='app.routes.js')
-    script(src="app.module.js")
-    script(src="scripts/index/index.controller.js")
+    include auth/auth-dependencies.jade
+
+    script(src="brick-service/brick.service.js")
+
+    include core/core-dependencies.jade
+
+    script(src="firebase/firebase.service.js")
+    script(src="index/index.controller.js")
