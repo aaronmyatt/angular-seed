@@ -1,7 +1,9 @@
 angular.module("app", [
-        "app.routes",
+        "ngRoute",
         "firebase",
         "jtt_bricklayer",
+
+        "app.auth",
         "app.bricks"
     ]);
 

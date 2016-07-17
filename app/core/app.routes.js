@@ -1,6 +1,6 @@
 (function(){
 
-    angular.module('app.routes', ['ngRoute'])
+    angular.module('app')
         .config(routeConfig);
 
 
@@ -8,7 +8,7 @@
     function routeConfig($locationProvider, $routeProvider){
         $routeProvider
             .when('/', {
-                templateUrl: 'scripts/index/bricks.html',
+                templateUrl: 'index/bricks.html',
                 controller: 'IndexController',
                 controllerAs: 'vm',
                 resolve: {}
