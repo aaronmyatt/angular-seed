@@ -1,6 +1,8 @@
-angular.module('app', [
-        'app.routes',
-        'jtt_bricklayer'
+angular.module("app", [
+        "app.routes",
+        "firebase",
+        "jtt_bricklayer",
+        "app.bricks"
     ]);
 
 

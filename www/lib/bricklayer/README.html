@@ -48,4 +48,17 @@ OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
 DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
-OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p><script src="lib/bricklayer/dist/bricklayer.js"></script><script src="lib/angular/angular.js"></script><script src="lib/angular-route/angular-route.js"></script><script src="lib/angular-bricklayer/dist/angular-bricklayer.js"></script><script src="app.routes.js"></script><script src="app.module.js"></script><script src="scripts/index/index.controller.js"></script></body></html>
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p><script src="lib/angular/angular.js"></script><script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script><script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script><script>// Initialize Firebase
+console.log('Firebase.init');
+
+var config = {
+    apiKey: "AIzaSyAV8adlVmIQBuhSR-TRtr7kr8310k2CPBI",
+authDomain: "remin-f1785.firebaseapp.com",
+databaseURL: "https://remin-f1785.firebaseio.com",
+storageBucket: "remin-f1785.appspot.com"
+};
+firebase.initializeApp(config);
+
+var storage = firebase.storage();
+var storageRef = storage.ref();
+firebase.auth().signInWithEmailAndPassword('aaronmyatt@gmail.com', '1234qwer');</script><script src="lib/bricklayer/dist/bricklayer.js"></script><script src="lib/angular-bricklayer/dist/angular-bricklayer.js"></script><script src="lib/angular-route/angular-route.js"></script><script src="scripts/brick-service/brick.service.js"></script><script src="app.routes.js"></script><script src="app.module.js"></script><script src="scripts/index/index.controller.js"></script></body></html>
