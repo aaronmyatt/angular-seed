@@ -1,6 +1,4 @@
-script(src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js")
-script(src="https://www.gstatic.com/firebasejs/ui/0.4.0/firebase-ui-auth.js")
-script(src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js")
+script(src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js")
 
 script.
     // Initialize Firebase
@@ -13,10 +11,12 @@ script.
         storageBucket: "remin-f1785.appspot.com"
     };
 
-    var Firebase = firebase.initializeApp(config);
-    var auth = Firebase.auth();
+    firebase.initializeApp(config);
+    var auth = firebase.auth();
 
     var storage = firebase.storage();
     var storageRef = storage.ref();
 
-    auth.signInWithEmailAndPassword("aaronmyatt@gmail.com", "1234qwer");
+//    auth.signInWithEmailAndPassword("aaronmyatt@gmail.com", "1234qwer");
+
+script(src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js")
