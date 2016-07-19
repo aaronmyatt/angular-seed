@@ -1,14 +1,16 @@
-<!DOCTYPE html><html lang="" ng-app="app" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Remin: A Place to Remember</title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="app.css"></head><body><content ng-view="ng-view"></content><script src="lib/angular/angular.js"></script><script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script><script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script><script>// Initialize Firebase
+<!DOCTYPE html><html lang="" ng-app="app" ng-cloak class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title></title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="lib/angular-material/angular-material.css"><link rel="stylesheet" href="lib/angular-material-icons/angular-material-icons.css"><link rel="stylesheet" href="app.css"></head><body><div id="quickstart-sign-in-status"></div><div id="quickstart-sign-in"></div><div id="firebaseui-auth-container"></div><content ng-view="ng-view"></content><div layout="row" layout-align="end center"><md-button aria-label="FAB" class="md-fab"><ng-md-icon icon="add" style="fill: yellow" size="24"></ng-md-icon></md-button></div><script src="lib/angular/angular.js"></script><script src="lib/angular-animate/angular-animate.js"></script><script src="lib/angular-aria/angular-aria.js"></script><script src="lib/angular-messages/angular-messages.js"></script><script src="lib/angular-material/angular-material.js"></script><script src="lib/angular-material-icons/angular-material-icons.js"></script><script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script><script>// Initialize Firebase
 console.log('Firebase.init');
 
 var config = {
     apiKey: "AIzaSyAV8adlVmIQBuhSR-TRtr7kr8310k2CPBI",
-authDomain: "remin-f1785.firebaseapp.com",
-databaseURL: "https://remin-f1785.firebaseio.com",
-storageBucket: "remin-f1785.appspot.com"
+    authDomain: "remin-f1785.firebaseapp.com",
+    databaseURL: "https://remin-f1785.firebaseio.com",
+    storageBucket: "remin-f1785.appspot.com"
 };
+
 firebase.initializeApp(config);
+var auth = firebase.auth();
 
 var storage = firebase.storage();
 var storageRef = storage.ref();
-firebase.auth().signInWithEmailAndPassword('aaronmyatt@gmail.com', '1234qwer');</script><script src="lib/bricklayer/dist/bricklayer.js"></script><script src="lib/angular-bricklayer/dist/angular-bricklayer.js"></script><script src="lib/angular-route/angular-route.js"></script><script src="scripts/brick-service/brick.service.js"></script><script src="app.routes.js"></script><script src="app.module.js"></script><script src="scripts/index/index.controller.js"></script></body></html>
+</script><!--    auth.signInWithEmailAndPassword("aaronmyatt@gmail.com", "1234qwer");--><script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script><script src="lib/bricklayer/dist/bricklayer.js"></script><script src="lib/angular-bricklayer/dist/angular-bricklayer.js"></script><script src="lib/angular-route/angular-route.js"></script><script src="auth/auth.module.js"></script><script src="auth/auth.route.js"></script><script src="auth/auth.service.js"></script><script src="auth/auth.controller.js"></script><script src="auth/authForm.directive.js"></script><script src="brick-service/brick.service.js"></script><script src="core/app.module.js"></script><script src="core/app.routes.js"></script><script src="core/app.config.js"></script><script src="firebase/firebase.service.js"></script><script src="index/index.controller.js"></script></body></html>

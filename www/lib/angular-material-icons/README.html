@@ -1,0 +1,45 @@
+<!DOCTYPE html><html lang="" ng-app="app" ng-cloak class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title></title><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="lib/angular-material/angular-material.css"><link rel="stylesheet" href="lib/angular-material-icons/angular-material-icons.css"><link rel="stylesheet" href="app.css"></head><body><div id="quickstart-sign-in-status"></div><div id="quickstart-sign-in"></div><div id="firebaseui-auth-container"></div><h1>angular-material-icons</h1><p>AngularJS directive to use Material Design icons with custom fill-color and size.</p>
+<p>This project encompasses all SVG icons from <a href="https://github.com/google/material-design-icons">Google&#39;s official Material Design Icon repository</a> and few hand-picked icons from community-led <a href="http://materialdesignicons.com/">MaterialDesignIcons.com</a> in form of angular directive that gives option to specify custom fill-color and size.</p>
+<p>Changes to icon will go through delightful morphing if <a href="https://github.com/alexk111/SVG-Morpheus">SVG-Morpheus</a> is also included in your application.</p>
+<h2>Installation</h2><p>This library is available via bower and npm</p>
+<ul>
+<li><code>bower install angular-material-icons</code></li>
+<li><code>npm install angular-material-icons</code></li>
+</ul>
+<h2>Configure own icons</h2><p>add many icons</p>
+<pre><code class="language-javascript">angular.module(&#39;moduleName&#39;).config(function (ngMdIconServiceProvider) {
+    ngMdIconServiceProvider.addShapes({
+        &#39;signal_wifi_0_bar&#39;: &#39;&lt;path fill-opacity=&quot;.3&quot; d=&quot;M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z&quot;/&gt;&#39;,
+        &#39;signal_wifi_1_bar&#39;: &#39;&lt;path fill-opacity=&quot;.3&quot; d=&quot;M12.01 21.49L23.64 7c-.45-.34-4.93-4-11.64-4C5.28 3 .81 6.66.36 7l11.63 14.49.01.01.01-.01z&quot;/&gt;&lt;path d=&quot;M6.67 14.86L12 21.49v.01l.01-.01 5.33-6.63C17.06 14.65 15.03 13 12 13s-5.06 1.65-5.33 1.86z&quot;/&gt;&#39;,
+    });
+});
+</code></pre>
+<p>optionally You can add viewBox for icon if not want to do it in templates</p>
+<ul>
+<li>attribute view-box from template has higher priority so if given will override configured by service</li>
+<li>if not given viewBox in config and template will use default &quot;0 0 24 24&quot;<pre><code class="language-javascript">angular.module(&#39;moduleName&#39;).config(function (ngMdIconServiceProvider) {
+ ngMdIconServiceProvider
+     .addShape(&#39;evCross&#39;, &#39;&lt;polygon points=&quot;612,36.004 576.521,0.603 306,270.608 35.478,0.603 0,36.004 270.522,306.011 0,575.997 35.478,611.397 306,341.411 576.521,611.397 612,575.997 341.459,306.011&quot;/&gt;&#39;)
+     .addViewBox(&#39;evCross&#39;, &#39;0 0 612 612&#39;);
+});
+</code></pre>
+</li>
+</ul>
+<h2>Demo</h2><p>Checkout the <a href="https://klarsys.github.io/angular-material-icons/">live demo</a> for usage instructions and a preview of all icons included in the set.</p>
+<h2>Licenses</h2><p>This package is released under <a href="https://raw.githubusercontent.com/klarsys/angular-material-icons/master/LICENSE">MIT license</a>.</p>
+<p>Icons are released under <a href="http://creativecommons.org/licenses/by/4.0/">Attribution 4.0 International</a> license.</p><script src="lib/angular/angular.js"></script><script src="lib/angular-animate/angular-animate.js"></script><script src="lib/angular-aria/angular-aria.js"></script><script src="lib/angular-messages/angular-messages.js"></script><script src="lib/angular-material/angular-material.js"></script><script src="lib/angular-material-icons/angular-material-icons.js"></script><script src="https://www.gstatic.com/firebasejs/3.0.3/firebase.js"></script><script>// Initialize Firebase
+console.log('Firebase.init');
+
+var config = {
+    apiKey: "AIzaSyAV8adlVmIQBuhSR-TRtr7kr8310k2CPBI",
+    authDomain: "remin-f1785.firebaseapp.com",
+    databaseURL: "https://remin-f1785.firebaseio.com",
+    storageBucket: "remin-f1785.appspot.com"
+};
+
+firebase.initializeApp(config);
+var auth = firebase.auth();
+
+var storage = firebase.storage();
+var storageRef = storage.ref();
+</script><!--    auth.signInWithEmailAndPassword("aaronmyatt@gmail.com", "1234qwer");--><script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script><script src="lib/bricklayer/dist/bricklayer.js"></script><script src="lib/angular-bricklayer/dist/angular-bricklayer.js"></script><script src="lib/angular-route/angular-route.js"></script><script src="auth/auth.module.js"></script><script src="auth/auth.route.js"></script><script src="auth/auth.service.js"></script><script src="auth/auth.controller.js"></script><script src="auth/authForm.directive.js"></script><script src="brick-service/brick.service.js"></script><script src="core/app.module.js"></script><script src="core/app.routes.js"></script><script src="core/app.config.js"></script><script src="firebase/firebase.service.js"></script><script src="index/index.controller.js"></script></body></html>
