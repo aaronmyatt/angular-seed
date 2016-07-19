@@ -6,7 +6,8 @@ angular.module("app", [
         "jtt_bricklayer",
 
         "app.auth",
-        "app.bricks"
+        "app.bricks",
+        "app.addmemory"
     ]);
 
 
