@@ -21,7 +21,8 @@
           return vm.login(user);
         })
         .then(function() {
-          return authService.sendWelcomeEmail(user.email);
+          console.log("AuthController::Signup Success")
+          // return authService.sendWelcomeEmail(user.email);
         })
         .catch(function(error) {
           vm.error = error;
