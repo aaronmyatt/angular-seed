@@ -4,6 +4,8 @@
     angular
         .module('app.addmemory', [
             "ngMaterial",
-            "ngMdIcons"
+            "ngMdIcons",
+            "ngFileUpload",
+            "app.bricks"
         ])
 })();
