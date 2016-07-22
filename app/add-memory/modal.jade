@@ -1,0 +1,10 @@
+form(name="form")
+    md-button(ngf-select ng-model="vm.file" name="file" ngf-pattern="'image/*'"
+              ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+              ngf-resize="{width: 100, height: 100}") Select
+
+    button(type="submit" ng-click="vm.submit()") Submit
+    p {{ vm.file.$ngfName }}
+
+p(ng-if="vm.file") Image thumbnail:
+    img(ngf-thumbnail="vm.file" ng-if="vm.file")
