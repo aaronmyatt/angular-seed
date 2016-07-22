@@ -18,6 +18,7 @@
         var service = this;
 
         service.getBricks = getBricks;
+        service.uploadBrick = uploadBrick;
 
         return service;
 
@@ -25,6 +26,24 @@
             console.log('BrickService.getBricks');
             return init();
 
+        }
+
+        function uploadBrick(file){
+            console.log("Uploading file, ", file);
+
+            var uploadTask = storageRef.child('images/' + file.name).put(file);
+            // uploadTask.on('state_changed', function(snapshot){
+            //     // Observe state change events such as progress, pause, and resume
+            //     // See below for more detail
+            // }, function(error) {
+            //     // Handle unsuccessful uploads
+            //     console.log("Upload error, ", error);
+            // }, function(s) {
+            //     console.log("Uploadsuccess, ", s);
+            //     // Handle successful uploads on complete
+            //     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+            //     var downloadURL = uploadTask.snapshot.downloadURL;
+            // });
         }
 
         function init() {
