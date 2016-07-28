@@ -7,19 +7,16 @@
         .module('app')
         .controller('IndexController', IndexController);
 
-    IndexController.$inject = ["BrickService"];
-    function IndexController (BrickService) {
+    IndexController.$inject = ["$firebaseArray"];
+    function IndexController ($firebaseArray) {
+        var database = firebase.database().ref('memories');
+
         var vm = this;
-        vm.bricks = [];
+        vm.memories = [];
 
         function init(){
             console.log('IndexController.init');
-            console.log(vm);
-
-            BrickService.getBricks().then(function(data){
-                console.log('qUrls: ', data);
-                vm.bricks = data;
-            });
+            vm.memories = $firebaseArray(database);
         }
         init();
     }
