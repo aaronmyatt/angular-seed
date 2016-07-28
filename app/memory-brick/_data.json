@@ -1,5 +1,8 @@
 {
   "memory-brick": {
     "layout": false
+  },
+  "modal": {
+    "layout": false
   }
 }
