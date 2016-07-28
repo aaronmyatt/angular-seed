@@ -11,7 +11,7 @@
             restrict: 'E',
             controller: Controller,
             controllerAs: 'vm',
-            bindToController: true,
+            bindToController: true
             // scope: {
             //     error: '=',
             //     formTitle: '@',
@@ -26,8 +26,11 @@
         vm.status = '  ';
         vm.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
 
-        vm.showAdvanced = function(ev) {
+        vm.showAdvanced = showAdvanced;
+
+        function showAdvanced(ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
+            console.log("AddMemory Modal Opened");
 
             $mdDialog.show({
                 controller: DialogController,
@@ -39,9 +42,9 @@
                 fullscreen: useFullScreen
             })
                 .then(function(answer) {
-                    vm.status = 'You said the information was "' + answer + '".';
+                    console.log("AddMemory Modal Opened");
                 }, function() {
-                    vm.status = 'You cancelled the dialog.';
+                    console.log("AddMemory Modal Closed");
                 });
 
             $scope.$watch(function() {
@@ -49,11 +52,11 @@
             }, function(wantsFullScreen) {
                 vm.customFullscreen = (wantsFullScreen === true);
             });
-        };
+        }
     }
 
-    DialogController.$inject = ["$scope", "$mdDialog", "BrickService"];
-    function DialogController($scope, $mdDialog, BrickService) {
+    DialogController.$inject = ["$scope", "$mdDialog", "MemoryService"];
+    function DialogController($scope, $mdDialog, MemoryService) {
         var vm = this;
 
         vm.hide = function () {
@@ -68,8 +71,8 @@
 
         vm.submit = function() {
             if ($scope.form.file.$valid && vm.file) {
-                console.log("Passing file to _BrickService_, ", vm.file);
-                BrickService.uploadBrick(vm.file);
+                console.log("Passing file to _MemoryService_, ", vm.file);
+                MemoryService.saveMemory(vm.file);
             }
         };
     }
