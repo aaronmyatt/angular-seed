@@ -8,8 +8,8 @@ angular.module("app", [
         "app.auth",
         "app.bricks",
         "app.firebase-storage",
-        "app.addmemory",
-        "app.memory-brick"
+        "app.memory-brick",
+        "app.addmemory"
     ]);
 
 
