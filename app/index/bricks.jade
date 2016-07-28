@@ -1,3 +1,3 @@
-div(class="bricklayer" ng-cloak)
-    div(bricklayer-append ng-repeat="brick in vm.bricks" ng-cloak)
-        img(src="{{brick}}")
+div(class="bricklayer")
+    div(bricklayer-prepend ng-repeat="memory in vm.memories" ng-cloak)
+        gz-memory-brick-directive(memory="memory")
