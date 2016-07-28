@@ -4,31 +4,31 @@
 
     angular
         .module('app.bricks', [])
-        .service('BrickService', BrickService);
+        .service('MemoryService', MemoryService);
 
-    BrickService.$inject = ["$q"]
-    function BrickService($q) {
-        var preBrick = [
-            storage.refFromURL('gs://remin-f1785.appspot.com/1.jpg'),
-            storage.refFromURL('gs://remin-f1785.appspot.com/2.jpg'),
-            storage.refFromURL('gs://remin-f1785.appspot.com/3.jpg'),
-            storage.refFromURL('gs://remin-f1785.appspot.com/4.jpg'),
-            storage.refFromURL('gs://remin-f1785.appspot.com/5.jpg')
-        ];
+    MemoryService.$inject = ["$q"];
+    function MemoryService($q) {
+
         var service = this;
 
-        service.getBricks = getBricks;
-        service.uploadBrick = uploadBrick;
+        service.getMemories = getMemories;
+        service.saveMemory = saveMemory;
 
         return service;
 
-        function getBricks () {
-            console.log('BrickService.getBricks');
-            return init();
-
+        function getMemories() {
+            console.log('MemoryService.getMemories');
+            return [{
+                file: "1.jpg",
+                message: "We miss him."
+            },
+            {
+                file: "2.jpg",
+                message: "We miss him."
+            }]
         }
 
-        function uploadBrick(file){
+        function saveMemory(file){
             console.log("Uploading file, ", file);
 
             var uploadTask = storageRef.child('images/' + file.name).put(file);
@@ -44,14 +44,6 @@
             //     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
             //     var downloadURL = uploadTask.snapshot.downloadURL;
             // });
-        }
-
-        function init() {
-            var qUrls = [];
-            preBrick.forEach(function (preUrl) {
-                qUrls.push(preUrl.getDownloadURL());
-            });
-            return $q.all(qUrls);
         }
     }
 

@@ -17,11 +17,14 @@ html.no-js(lang="" ng-app="app" ng-cloak)
 
     include lib/lib-dependencies.jade
     include firebase/firebase.jade
+    script(src="firebase-storage-service/firebase-storage.service.js")
 
     include auth/auth-dependencies.jade
+    include memory-brick/memory-brick-dependencies.jade
     include add-memory/add-memory-dependencies.jade
 
-    script(src="brick-service/brick.service.js")
+    script(src="memory-service/memory.service.js")
+
 
     include core/core-dependencies.jade
 
