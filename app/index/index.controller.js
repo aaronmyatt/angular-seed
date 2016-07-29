@@ -15,10 +15,9 @@
         vm.memories = [];
 
         function init(){
-            console.log('IndexController.init');
+            console.log('IndexController.init', vm);
             vm.memories = $firebaseArray(database);
         }
         init();
     }
-
 })();
