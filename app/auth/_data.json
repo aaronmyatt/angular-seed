@@ -1,0 +1,11 @@
+{
+  "authForm": {
+    "layout": false
+  },
+  "login": {
+    "layout": false
+  },
+  "register": {
+    "layout": false
+  }
+}
