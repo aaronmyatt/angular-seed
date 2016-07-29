@@ -1,3 +1,4 @@
-div(layout="row" layout-align="end center")
+div(ng-if="vm.location == '/'" layout="row" layout-align="end center")
     md-button(class="md-fab" aria-label="FAB" ng-click="vm.showAdvanced($event)")
         ng-md-icon(icon="add" style="fill: yellow" size="24")
+        md-tooltip(md-delay="0") New Memory

@@ -20,11 +20,13 @@
         };
     }
 
-    Controller.$inject = ["$scope", "$mdDialog", "$mdMedia"];
-    function Controller($scope, $mdDialog, $mdMedia) {
+    Controller.$inject = ["$scope", "$location", "$mdDialog", "$mdMedia"];
+    function Controller($scope, $location, $mdDialog, $mdMedia) {
         var vm = this;
-        vm.status = '  ';
+        vm.status = '';
         vm.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+        vm.location = $location.url();
+        console.log($location.url());
 
         vm.showAdvanced = showAdvanced;
 
@@ -55,10 +57,20 @@
         }
     }
 
-    DialogController.$inject = ["$scope", "$mdDialog", "MemoryService"];
-    function DialogController($scope, $mdDialog, MemoryService) {
+    DialogController.$inject = ["$scope", "$mdDialog", "FirebaseStorageService", "$firebaseArray"];
+    function DialogController($scope, $mdDialog, FirebaseStorageService, $firebaseArray) {
         var vm = this;
+        var database = firebase.database().ref('memories');
 
+        vm.memories = [];
+        vm.file = '';
+        vm.message = '';
+
+
+        vm.saveMemory = function (memory){
+            console.log("_saveMemory_", memory);
+            vm.memories.$add(memory);
+        }
         vm.hide = function () {
             $mdDialog.hide();
         };
@@ -72,9 +84,33 @@
         vm.submit = function() {
             if ($scope.form.file.$valid && vm.file) {
                 console.log("Passing file to _MemoryService_, ", vm.file);
-                MemoryService.saveMemory(vm.file);
+                var uploadTask = FirebaseStorageService.saveFile(vm.file)
+
+                uploadTask.on('state_changed', function(snapshot){
+                    // Observe state change events such as progress, pause, and resume
+                    // See below for more detail
+                }, function(error) {
+                    // Handle unsuccessful uploads
+                    console.log("Upload error, ", error);
+                }, function(s) {
+                    // Handle successful uploads on complete
+                    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                    var downloadURL = uploadTask.snapshot.downloadURL;
+                    console.log("Uploadsuccess, ", downloadURL);
+
+                    vm.saveMemory({
+                        message: vm.message,
+                        file: vm.file.name
+                    });
+                });
             }
         };
+
+        function init(){
+            console.log('AddMemory Dialog.init', database);
+            vm.memories = $firebaseArray(database);
+        }
+        init();
     }
 
 })();
