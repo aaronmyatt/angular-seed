@@ -58,7 +58,9 @@
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 bindToController: true,
-                locals: {image: vm.memory.ref}
+                locals: {
+                    image: vm.memory.ref,
+                    message: vm.memory.message}
             })
                 .then(function(answer) {
                     console.log("AddMemory Modal Opened");
