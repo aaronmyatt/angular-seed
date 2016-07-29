@@ -27,3 +27,10 @@ div(layout="row" layout-align="center center")
 
             section
                 md-button(class="md-raised md-primary" ng-bind="vm.formTitle" type="submit")
+
+
+div(layout="row" layout-align="center center")
+    md-button(class="md-fab" ng-click="vm.googleLogin()")
+        ng-md-icon(icon="google-plus-box")
+    md-button(class="md-fab" ng-click="vm.googleLogin()")
+        ng-md-icon(icon="facebook")

@@ -13,6 +13,8 @@ script.
 
     firebase.initializeApp(config);
     var auth = firebase.auth();
+    var googleProvider = new firebase.auth.GoogleAuthProvider();
+
 
     var storage = firebase.storage();
     var storageRef = storage.ref();
