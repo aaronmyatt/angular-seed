@@ -6,7 +6,10 @@ angular.module("app", [
         "jtt_bricklayer",
 
         "app.auth",
-        "app.bricks"
+        "app.bricks",
+        "app.firebase-storage",
+        "app.addmemory",
+        "app.memory-brick"
     ]);
 
 
