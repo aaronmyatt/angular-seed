@@ -7,7 +7,7 @@
 
     function gzAddMemoryButton() {
         return {
-            templateUrl: 'add-memory/button.html',
+            templateUrl: 'add-memory/memory-button.html',
             restrict: 'E',
             controller: Controller,
             controllerAs: 'vm',
@@ -70,7 +70,7 @@
         vm.saveMemory = function (memory){
             console.log("_saveMemory_", memory);
             vm.memories.$add(memory);
-        }
+        };
         vm.hide = function () {
             $mdDialog.hide();
         };
@@ -84,7 +84,7 @@
         vm.submit = function() {
             if ($scope.form.file.$valid && vm.file) {
                 console.log("Passing file to _MemoryService_, ", vm.file);
-                var uploadTask = FirebaseStorageService.saveFile(vm.file)
+                var uploadTask = FirebaseStorageService.saveFile(vm.file);
 
                 uploadTask.on('state_changed', function(snapshot){
                     // Observe state change events such as progress, pause, and resume
@@ -100,7 +100,11 @@
 
                     vm.saveMemory({
                         message: vm.message,
-                        file: vm.file.name
+                        file: vm.file.name,
+                        imageHeight: vm.file.$ngfHeight,
+                        imageWidth: vm.file.$ngfWidth,
+                        user: auth.currentUser.uid,
+                        timestamp: firebase.database.ServerValue.TIMESTAMP
                     });
                 });
             }
