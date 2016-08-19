@@ -1,15 +1,19 @@
-form(name="form")
-    h2 New Memory
+form(name="form" layout-padding)
+
+    h2(class="") New Memory
 
     md-button(ng-model="vm.file" name="file" ngf-select ngf-pattern="'image/*'"
-              ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100") Select
+              ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100") Select Image
 
     //Server authentication error
     p(ng-show="vm.error" class="text-danger" ng-bind="vm.error")
 
-    //Email input
-    textarea(ng-model="vm.message" ng-model-options="{ updateOn: 'default blur', debounce: { default: 1000, blur: 0 } }" name="message" class="form-control" placeholder="Message" required autofocus)
-    button(type="submit" ng-click="vm.submit()") Submit
+    md-input-container(class="md-block")
+        textarea(ng-model="vm.message"
+                 name="message" placeholder="Message" required autofocus
+                 rows="5" md-select-on-focus)
+    p
+    md-button(class="md-raised md-primary" type="submit" ng-click="vm.submit()") Submit
 
-p(ng-if="vm.file") Image thumbnail:
+span(ng-if="vm.file")
     img(ngf-thumbnail="vm.file" ng-if="vm.file")
