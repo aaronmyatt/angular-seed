@@ -1,21 +1,20 @@
-// Renders all
-
 (function() {
     'use strict';
 
     angular
         .module('app')
-        .controller('IndexController', IndexController);
+        .controller('CoreController', CoreController);
 
-    IndexController.$inject = ["$firebaseArray"];
-    function IndexController ($firebaseArray) {
+    CoreController.$inject = ["$firebaseArray"];
+    function CoreController ($firebaseArray) {
         var database = firebase.database().ref('memories');
 
         var vm = this;
+
         vm.memories = [];
 
         function init(){
-            console.log('IndexController.init', vm);
+            console.log('CoreController.init', vm);
             vm.memories = $firebaseArray(database);
         }
         init();
