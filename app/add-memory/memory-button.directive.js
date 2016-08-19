@@ -7,7 +7,7 @@
 
     function gzAddMemoryButton() {
         return {
-            templateUrl: 'add-memory/button.html',
+            templateUrl: 'add-memory/memory-button.html',
             restrict: 'E',
             controller: Controller,
             controllerAs: 'vm',
