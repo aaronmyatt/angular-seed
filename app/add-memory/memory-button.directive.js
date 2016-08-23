@@ -11,23 +11,20 @@
             restrict: 'E',
             controller: Controller,
             controllerAs: 'vm',
-            bindToController: true
-            // scope: {
-            //     error: '=',
-            //     formTitle: '@',
-            //     submitAction: '&'
-            // }
+            scope: {
+                // error: '=',
+                // formTitle: '@',
+                // submitAction: '&'
+            }
         };
     }
 
     Controller.$inject = ["$scope", "$location", "$mdDialog", "$mdMedia"];
     function Controller($scope, $location, $mdDialog, $mdMedia) {
         var vm = this;
+        vm.ctrl = 'AddMemoryDirectiveController';
         vm.status = '';
         vm.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
-        vm.location = $location.url();
-        console.log($location.url());
-
         vm.showAdvanced = showAdvanced;
 
         function showAdvanced(ev) {
@@ -60,6 +57,7 @@
     DialogController.$inject = ["$scope", "$mdDialog", "FirebaseStorageService", "$firebaseArray"];
     function DialogController($scope, $mdDialog, FirebaseStorageService, $firebaseArray) {
         var vm = this;
+        vm.ctrl = 'AddMemoryDialogController';
         var database = firebase.database().ref('memories');
 
         vm.memories = [];

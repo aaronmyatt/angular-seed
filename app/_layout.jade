@@ -13,7 +13,49 @@ html.no-js(lang="" ng-app="app" ng-cloak)
     div(id="quickstart-sign-in")
     div(id="firebaseui-auth-container")
 
-    != yield
+    div(ng-controller="IndexController as vm")
+
+      include devutil.jade
+
+      div(layout="row" layout-align="center center")
+        md-button(
+        id="home-button"
+        class="md-fab"
+        aria-label="FAB"
+        href="/")
+          ng-md-icon(icon="home" size="24")
+          md-tooltip(md-delay="0") Home
+
+        md-button(
+        id="login-button"
+        ng-if="vm.showLoginButton() == true"
+        class="md-fab"
+        aria-label="FAB"
+        href="/#/login")
+          ng-md-icon(icon="login" size="24")
+          md-tooltip(md-delay="0") Login
+
+        md-button(
+          id="register-button"
+          ng-if="vm.showRegisterButton() == true"
+          class="md-fab"
+          aria-label="FAB"
+          href="/#/register")
+          ng-md-icon(icon="account_circle" size="24")
+          md-tooltip(md-delay="0") Register
+
+        md-button(
+        id="logout-button"
+        ng-if="vm.isLoggedIn"
+        ng-click="vm.signOut()"
+        class="md-fab"
+        aria-label="FAB")
+          ng-md-icon(icon="logout" size="24")
+          md-tooltip(md-delay="0") Logout
+
+        gz-add-memory-button(ng-if="vm.isLoggedIn")
+
+      != yield
 
     include lib/lib-dependencies.jade
     include firebase/firebase.jade
@@ -23,5 +65,5 @@ html.no-js(lang="" ng-app="app" ng-cloak)
     include memory-brick/memory-brick-dependencies.jade
     include add-memory/add-memory-dependencies.jade
     include core/core-dependencies.jade
-
+    script(src="index.controller.js")
     script(src="firebase/firebase.service.js")

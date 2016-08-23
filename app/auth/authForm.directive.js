@@ -22,6 +22,7 @@
 
   function AuthFormController() {
     var vm = this;
+    vm.ctrl = "AuthFormDirectiveController";
 
     vm.googleLogin = googleLogin;
 
