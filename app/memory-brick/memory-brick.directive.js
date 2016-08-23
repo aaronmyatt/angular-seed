@@ -83,8 +83,8 @@
         init();
     }
 
-    DialogController.$inject = ["$scope", "$mdDialog", "MemoryService"];
-    function DialogController($scope, $mdDialog, MemoryService) {
+    DialogController.$inject = ["$scope", "$mdDialog"];
+    function DialogController($scope, $mdDialog) {
         var vm = this;
 
         vm.hide = function () {
@@ -95,13 +95,6 @@
         };
         vm.answer = function (answer) {
             $mdDialog.hide(answer);
-        };
-
-        vm.submit = function() {
-            if ($scope.form.file.$valid && vm.file) {
-                console.log("Passing file to _MemoryService_, ", vm.file);
-                MemoryService.saveMemory(vm.file);
-            }
         };
     }
 
