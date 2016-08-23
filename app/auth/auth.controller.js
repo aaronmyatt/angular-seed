@@ -9,7 +9,7 @@
 
   function AuthController($location, authService) {
     var vm = this;
-
+    vm.ctrl = 'AuthController';
     vm.error = null;
 
     vm.register = register;
@@ -21,7 +21,7 @@
           return vm.login(user);
         })
         .then(function() {
-          console.log("AuthController::Signup Success")
+          console.log("AuthController::Signup Success");
           // return authService.sendWelcomeEmail(user.email);
         })
         .catch(function(error) {
