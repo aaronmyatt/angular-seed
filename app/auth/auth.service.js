@@ -18,7 +18,7 @@
       isLoggedIn: isLoggedIn
     //   sendWelcomeEmail: sendWelcomeEmail
     };
-    //
+
     return service;
 
     ////////////
