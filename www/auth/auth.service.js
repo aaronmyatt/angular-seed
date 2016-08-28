@@ -5,9 +5,9 @@
     .module('app.auth')
     .factory('authService', authService);
 
-  authService.$inject = ['$firebaseAuth', 'firebaseDataService'];
+  authService.$inject = ['$firebaseAuth', 'firebaseDataService', '$location'];
 
-  function authService($firebaseAuth, firebaseDataService) {
+  function authService($firebaseAuth, firebaseDataService, $location) {
     var firebaseAuthObject = $firebaseAuth();
     //
     var service = {
@@ -15,10 +15,10 @@
       register: register,
       login: login,
       logout: logout,
-      isLoggedIn: isLoggedIn,
+      isLoggedIn: isLoggedIn
     //   sendWelcomeEmail: sendWelcomeEmail
     };
-    //
+
     return service;
 
     ////////////
@@ -33,6 +33,7 @@
 
     function logout() {
       firebaseAuthObject.$signOut();
+      $location.path('/');
     }
 
     function isLoggedIn() {
