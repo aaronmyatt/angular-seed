@@ -7,8 +7,6 @@
 
     CoreController.$inject = ["$scope", "$firebaseArray", "authService"];
     function CoreController ($scope, $firebaseArray, authService) {
-        var database = firebase.database().ref('memories');
-
         var vm = this;
         vm.ctrl = 'CoreController';
 
@@ -16,6 +14,7 @@
 
         function init(){
             console.log('CoreController.init', vm);
+            var database = firebase.database().ref('memories');
             vm.memories = $firebaseArray(database);
         }
         init();

@@ -1,6 +1,7 @@
 //include ../devutil.jade
 
 div(class="memory-modal")
+
     div(layout="row" layout-align="end center")
         md-button(ng-click="vm.hide()")
             ng-md-icon(icon="close" size="24")
@@ -9,7 +10,5 @@ div(class="memory-modal")
         md-card-content
             div(layout="row" layout-align="center center")
                 p(class="") {{vm.locals.message}}
-        p
-            small Author: {{vm.locals.user}}
+        small Created by: {{vm.locals.user}}
         md-button(ng-click="vm.hide()") Close
-

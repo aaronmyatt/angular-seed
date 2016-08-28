@@ -60,7 +60,9 @@
                 bindToController: true,
                 locals: {
                     image: vm.memory.ref,
-                    message: vm.memory.message}
+                    message: vm.memory.message,
+                    user: vm.memory.uploader_name || 'Anonymous'
+                }
             })
                 .then(function(answer) {
                     console.log("AddMemory Modal Opened");
@@ -86,16 +88,24 @@
     DialogController.$inject = ["$scope", "$mdDialog"];
     function DialogController($scope, $mdDialog) {
         var vm = this;
+        vm.hide = hide;
+        vm.cancel = cancel;
+        vm.answer = answer;
+        vm.fetchUser = fetchUser;
 
-        vm.hide = function () {
+        function fetchUser(){
+            var id = vm.local.user;
+            
+        }
+        function hide () {
             $mdDialog.hide();
-        };
-        vm.cancel = function () {
+        }
+        function cancel () {
             $mdDialog.cancel();
-        };
-        vm.answer = function (answer) {
+        }
+        function answer (answer) {
             $mdDialog.hide(answer);
-        };
+        }
     }
 
 })();
