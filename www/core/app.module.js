@@ -3,13 +3,12 @@ angular.module("app", [
         "firebase",
         "ngMaterial",
         "ngMdIcons",
-        "jtt_bricklayer",
 
+        "app.profile",
         "app.auth",
-        "app.bricks",
         "app.firebase-storage",
-        "app.addmemory",
-        "app.memory-brick"
+        "app.memory-brick",
+        "app.addmemory"
     ]);
 
 

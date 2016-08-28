@@ -54,29 +54,29 @@
         }
     }
 
-    DialogController.$inject = ["$scope", "$mdDialog", "FirebaseStorageService", "$firebaseArray"];
-    function DialogController($scope, $mdDialog, FirebaseStorageService, $firebaseArray) {
+    DialogController.$inject = ["$scope", "$mdDialog", "FirebaseStorageService", "$firebaseArray", "profileService"];
+    function DialogController($scope, $mdDialog, FirebaseStorageService, $firebaseArray, profileService) {
         var vm = this;
         vm.ctrl = 'AddMemoryDialogController';
-        var database = firebase.database().ref('memories');
 
         vm.memories = [];
         vm.file = '';
         vm.message = '';
 
-
-        vm.saveMemory = function (memory){
-            console.log("_saveMemory_", memory);
-            vm.memories.$add(memory);
-        };
         vm.hide = function () {
             $mdDialog.hide();
         };
-        vm.cancel = function () {
-            $mdDialog.cancel();
-        };
-        vm.answer = function (answer) {
-            $mdDialog.hide(answer);
+
+        vm.saveMemory = function(memory){
+            console.log("_saveMemory_", memory);
+            vm.memories.$add(memory).then(function(data){
+                console.log("Memory added successfully");
+                var upload = {}; // So we can evaluate the key name below
+                var id = data.key;
+                var index = vm.memories.$indexFor(id);
+                upload[id] = vm.memories[index].file;
+                var obj = profileService.updateUploads(upload);
+            });
         };
 
         vm.submit = function() {
@@ -90,27 +90,32 @@
                 }, function(error) {
                     // Handle unsuccessful uploads
                     console.log("Upload error, ", error);
-                }, function(s) {
+                }, function(success) {
                     // Handle successful uploads on complete
                     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
                     var downloadURL = uploadTask.snapshot.downloadURL;
                     console.log("Uploadsuccess, ", downloadURL);
 
-                    vm.saveMemory({
+                    var memory = {
                         message: vm.message,
                         file: vm.file.name,
                         imageHeight: vm.file.$ngfHeight,
                         imageWidth: vm.file.$ngfWidth,
-                        user: auth.currentUser.uid,
-                        timestamp: firebase.database.ServerValue.TIMESTAMP
-                    });
+                        uploader_uid: auth.currentUser.uid,
+                        uploader_name: profileService.obj.display_name,
+                        timestamp: Date.now()
+                    };
+
+                    vm.saveMemory(memory);
+                    vm.hide();
                 });
             }
         };
 
         function init(){
-            console.log('AddMemory Dialog.init', database);
+            var database = firebase.database().ref('memories');
             vm.memories = $firebaseArray(database);
+            console.log("Memory button init, ", vm.memories);
         }
         init();
     }
