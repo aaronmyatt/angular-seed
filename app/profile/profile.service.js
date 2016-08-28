@@ -20,19 +20,27 @@
         });
     };
 
-    profileService.$inject = ["$firebaseObject"];
-    function profileService($firebaseObject) {
+    profileService.$inject = ["$firebaseObject", "$firebaseArray"];
+    function profileService($firebaseObject, $firebaseArray) {
         var service = this;
 
         service.obj = null;
+        service.uploads = null;
+        service.updateUploads = updateUploads;
         service.setup = setup;
 
         return service;
 
+        function updateUploads(upload){
+            return service.uploads.$add(upload);
+        }
+
         function setup(uid){
             console.log("Init ProfileService");
-            var database = firebase.database().ref('profile/'+uid);
-            service.obj = $firebaseObject(database);
+            var profile = firebase.database().ref('profile/'+uid);
+            var uploads = firebase.database().ref('profile/'+uid+'/uploads');
+            service.obj = $firebaseObject(profile);
+            service.uploads = $firebaseArray(uploads);
         }
     }
 })();
