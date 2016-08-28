@@ -54,8 +54,8 @@
         }
     }
 
-    DialogController.$inject = ["$scope", "$mdDialog", "FirebaseStorageService", "$firebaseArray"];
-    function DialogController($scope, $mdDialog, FirebaseStorageService, $firebaseArray) {
+    DialogController.$inject = ["$scope", "$mdDialog", "FirebaseStorageService", "$firebaseArray", "profileService"];
+    function DialogController($scope, $mdDialog, FirebaseStorageService, $firebaseArray, profileService) {
         var vm = this;
         vm.ctrl = 'AddMemoryDialogController';
         var database = firebase.database().ref('memories');
@@ -101,9 +101,12 @@
                         file: vm.file.name,
                         imageHeight: vm.file.$ngfHeight,
                         imageWidth: vm.file.$ngfWidth,
-                        user: auth.currentUser.uid,
-                        timestamp: firebase.database.ServerValue.TIMESTAMP
+                        uploader_uid: auth.currentUser.uid,
+                        uploader_name: profileService.display_name,
+                        timestamp: Date.now()
                     });
+
+                    vm.hide();
                 });
             }
         };
@@ -111,6 +114,9 @@
         function init(){
             console.log('AddMemory Dialog.init', database);
             vm.memories = $firebaseArray(database);
+            // vm.memories.$watch(function(event) {
+            //     console.log("Memory $add event::", event);
+            // });
         }
         init();
     }
