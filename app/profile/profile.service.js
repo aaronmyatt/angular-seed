@@ -27,6 +27,7 @@
         service.obj = null;
         service.uploads = null;
         service.updateUploads = updateUploads;
+        service.updateDisplayName = updateDisplayName;
         service.setup = setup;
 
         return service;
@@ -34,7 +35,12 @@
         function updateUploads(upload){
             return service.uploads.$add(upload);
         }
-
+        
+        function updateDisplayName(name){
+            service.obj.display_name = name;
+            return obj.$save();
+        }
+        
         function setup(uid){
             console.log("Init ProfileService");
             var profile = firebase.database().ref('profile/'+uid);

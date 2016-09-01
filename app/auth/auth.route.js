@@ -29,7 +29,7 @@
       if (!authData && pathIsProtected($location.path())) {
         authService.logout();
         $location.path('/login');
-      };
+      }
     });
 
     function pathIsProtected(path) {

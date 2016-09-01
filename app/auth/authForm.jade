@@ -30,7 +30,7 @@ div(layout="row" layout-align="center center")
 
 
 div(layout="row" layout-align="center center")
-    md-button(class="md-fab" ng-click="vm.googleLogin()")
+    md-button(class="md-fab" ng-click="vm.oauthAction({provider: 'google'})")
         ng-md-icon(icon="google-plus-box")
-    md-button(class="md-fab" ng-click="vm.googleLogin()")
+    md-button(class="md-fab" ng-click="vm.oauthAction({provider: 'facebook'})")
         ng-md-icon(icon="facebook")
