@@ -60,7 +60,7 @@
                 bindToController: true,
                 locals: {
                     image: vm.memory.ref,
-                    message: vm.memory.message,
+                    memory: vm.memory,
                     user: vm.memory.uploader_name || 'Anonymous'
                 }
             })
@@ -85,18 +85,18 @@
         init();
     }
 
-    DialogController.$inject = ["$scope", "$mdDialog"];
-    function DialogController($scope, $mdDialog) {
+    DialogController.$inject = ["$scope", "$mdDialog", "$firebaseObject"];
+    function DialogController($scope, $mdDialog, $firebaseObject) {
+        var memory = firebase.database().ref('memories');
+
         var vm = this;
+        
         vm.hide = hide;
         vm.cancel = cancel;
         vm.answer = answer;
-        vm.fetchUser = fetchUser;
+        vm.remove = remove;
+        vm.isUploader = isUploader;
 
-        function fetchUser(){
-            var id = vm.local.user;
-            
-        }
         function hide () {
             $mdDialog.hide();
         }
@@ -105,6 +105,21 @@
         }
         function answer (answer) {
             $mdDialog.hide(answer);
+        }
+        function remove () {
+            console.log("Removing memory", vm.locals.memory);
+            var id = vm.locals.memory.$id;
+            var memory = firebase.database().ref('memories/'+id);
+            memory = $firebaseObject(memory);
+            memory.$loaded().then(function(){
+                console.log("Memory loaded:", memory);
+                memory.remove = true;
+                memory.$save();
+                hide();
+            });
+        }
+        function isUploader () {
+            return vm.locals.memory.uploader_uid == auth.currentUser.uid;
         }
     }
 

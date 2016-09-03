@@ -24,6 +24,7 @@
             console.log("WatchFired::isLoggedIn");
             if (data !== null){
                 vm.isLoggedIn = !data.isAnonymous;
+                $location.path('/');
             }else{
                 vm.isLoggedIn = null;
             }
