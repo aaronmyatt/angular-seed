@@ -17,15 +17,10 @@ html.no-js(lang="" ng-app="app" ng-cloak)
 
       include devutil.jade
 
-      div(layout="row" layout-align="center center")
-        md-button(
-        id="home-button"
-        class="md-fab"
-        aria-label="FAB"
-        href="/")
-          ng-md-icon(icon="home" size="24")
-          md-tooltip(md-delay="0") Home
+      div(layout="row" layout-align="end center" ng-if="vm.isLoggedIn")
+        gz-add-memory-button
 
+      div(layout="row" layout-align="center center" ng-if="!vm.isLoggedIn")
         md-button(
         id="login-button"
         ng-if="vm.showLoginButton() == true"
@@ -36,24 +31,30 @@ html.no-js(lang="" ng-app="app" ng-cloak)
           md-tooltip(md-delay="0") Login
 
         md-button(
-          id="register-button"
-          ng-if="vm.showRegisterButton() == true"
-          class="md-fab"
-          aria-label="FAB"
-          href="/#/register")
+        id="register-button"
+        ng-if="vm.showRegisterButton() == true"
+        class="md-fab"
+        aria-label="FAB"
+        href="/#/register")
           ng-md-icon(icon="account_circle" size="24")
           md-tooltip(md-delay="0") Register
 
-        md-button(
-        id="logout-button"
-        ng-if="vm.isLoggedIn"
-        ng-click="vm.signOut()"
-        class="md-fab"
-        aria-label="FAB")
-          ng-md-icon(icon="logout" size="24")
-          md-tooltip(md-delay="0") Logout
+        //  md-button(
+        //  id="home-button"
+        //  class="md-fab"
+        //  aria-label="FAB"
+        //  href="/")
+        //    ng-md-icon(icon="home" size="24")
+        //    md-tooltip(md-delay="0") Home
 
-        gz-add-memory-button(ng-if="vm.isLoggedIn")
+        //md-button(
+        //id="logout-button"
+        //ng-if="vm.isLoggedIn"
+        //ng-click="vm.signOut()"
+        //class="md-fab"
+        //aria-label="FAB")
+        //  ng-md-icon(icon="logout" size="24")
+        //  md-tooltip(md-delay="0") Logout
 
       != yield
 
