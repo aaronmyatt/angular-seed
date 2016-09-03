@@ -14,7 +14,7 @@
 
         function init(){
             console.log('CoreController.init', vm);
-            var database = firebase.database().ref('memories');
+            var database = firebase.database().ref('memories').orderByChild('remove').equalTo(false);
             vm.memories = $firebaseArray(database);
         }
         init();
