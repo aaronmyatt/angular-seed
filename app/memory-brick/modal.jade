@@ -3,12 +3,14 @@
 div(class="memory-modal")
 
     div(layout="row" layout-align="end center")
+        span(ng-if="vm.isUploader()")
+            md-button(ng-click="vm.remove()") Delete
         md-button(ng-click="vm.hide()")
             ng-md-icon(icon="close" size="24")
     md-card
-        img(ng-show="vm.locals.image" ng-src="{{vm.locals.image}}" class="md-card-image")
+        img(ng-show="vm.locals.memory.ref" ng-src="{{vm.locals.memory.ref}}" class="md-card-image")
         md-card-content
             div(layout="row" layout-align="center center")
-                p(class="") {{vm.locals.message}}
-        small Created by: {{vm.locals.user}}
+                p(class="") {{vm.locals.memory.message}}
+        small Created by: {{vm.locals.memory.uploader_name}}
         md-button(ng-click="vm.hide()") Close
