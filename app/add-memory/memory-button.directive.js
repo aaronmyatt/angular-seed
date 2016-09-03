@@ -103,7 +103,8 @@
                         imageWidth: vm.file.$ngfWidth,
                         uploader_uid: auth.currentUser.uid,
                         uploader_name: profileService.obj.display_name,
-                        timestamp: Date.now()
+                        timestamp: Date.now(),
+                        remove: false
                     };
 
                     vm.saveMemory(memory);
