@@ -18,7 +18,13 @@ html.no-js(lang="" ng-app="app" ng-cloak)
       include devutil.jade
 
       div(layout="row" layout-align="end center" ng-if="vm.isLoggedIn")
-        gz-add-memory-button
+        md-toolbar(class="md-hue-2")
+          div(class="md-toolbar-tools")
+            h1
+              span For Adieb
+            md-button About
+            span(flex)
+            gz-add-memory-button
 
       div(layout="row" layout-align="center center" ng-if="!vm.isLoggedIn")
         md-button(
@@ -27,7 +33,7 @@ html.no-js(lang="" ng-app="app" ng-cloak)
         class="md-fab"
         aria-label="FAB"
         href="/#/login")
-          ng-md-icon(icon="login" size="24")
+          ng-md-icon(icon="login")
           md-tooltip(md-delay="0") Login
 
         md-button(
@@ -36,7 +42,7 @@ html.no-js(lang="" ng-app="app" ng-cloak)
         class="md-fab"
         aria-label="FAB"
         href="/#/register")
-          ng-md-icon(icon="account_circle" size="24")
+          ng-md-icon(icon="account_circle")
           md-tooltip(md-delay="0") Register
 
         //  md-button(

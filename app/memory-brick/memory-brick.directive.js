@@ -56,7 +56,7 @@
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen,
+                fullscreen: false,
                 bindToController: true,
                 locals: {
                     image: vm.memory.ref,

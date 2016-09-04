@@ -4,6 +4,10 @@
   }
   img {
     max-height: 400px;
-    display:block;
+    display: block;
+
+    @media (max-width: 600px) {
+      width:100%;
+    }
   }
 }

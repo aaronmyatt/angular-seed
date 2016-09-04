@@ -1,4 +1,5 @@
 md-content
-  div(id="grid" layout="row" layout-padding layout-margin layout-fill layout-wrap)
+  div(id="grid" layout="row" layout-xs="column" layout-sm="column"
+      layout-align="center center" layout-wrap layout-padding layout-margin)
     div(ng-repeat="memory in vm.memories" ng-cloak)
       gz-memory-brick-directive(memory="memory")
