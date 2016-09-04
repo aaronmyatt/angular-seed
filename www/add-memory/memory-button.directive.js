@@ -38,7 +38,7 @@
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: false
             })
                 .then(function(answer) {
                     console.log("AddMemory Modal Opened");

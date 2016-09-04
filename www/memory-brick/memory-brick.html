@@ -1,1 +1,1 @@
-<div ng-show="vm.memory.ref"><img src="{{vm.memory.ref}}" ng-click="vm.showAdvanced($event)"/><md-tooltip md-delay="0">{{vm.memory.message}}</md-tooltip></div>
+<div ng-show="vm.memory.ref" md-whiteframe="1"><img ng-src="{{vm.memory.ref}}" ng-click="vm.showAdvanced($event)"/><md-content><p id="brick-message">{{vm.memory.message}}</p></md-content></div>

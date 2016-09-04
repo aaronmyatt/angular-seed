@@ -1,1 +1,1 @@
-body{background-color:white}
+body{background-color:white}@media (max-width:600px){body .md-button.md-fab{height:40px;width:40px}}body .md-button.md-fab svg{height:36px;width:36px;-webkit-transform:translate3d(-18%,-40%,0);transform:translate3d(-18%,-40%,0)}@media (min-width:600px){body .md-button.md-fab svg{-webkit-transform:translate3d(-25%,-26%,0);transform:translate3d(-25%,-26%,0);height:48px;width:48px}}

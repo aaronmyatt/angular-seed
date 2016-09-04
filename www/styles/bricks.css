@@ -1,1 +1,1 @@
-@media screen and (min-width:300px){.bricklayer-column-sizer{width:33.333%}}@media screen and (min-width:600px){.bricklayer-column-sizer{width:25%}}@media screen and (min-width:900px){.bricklayer-column-sizer{width:20%}}.box{margin:10px 0;padding:10px;border:1px solid black}img{width:100%;height:auto;display:block}
+#grid #brick-message{text-align:center}#grid img{max-height:400px;display:block}@media (max-width:600px){#grid img{width:100%}}
