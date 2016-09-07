@@ -1,7 +1,10 @@
 @import "variables";
 
 body {
+
+  font-family: $font2;
   background-color: white;
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/remin-f1785.appspot.com/o/main%2F3.jpg?alt=media&token=ec998de7-da9f-4257-b6dd-4c3a5a536490");
 
   .md-button.md-fab {
     @media (max-width: 600px) {

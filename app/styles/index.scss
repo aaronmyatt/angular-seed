@@ -1,0 +1,24 @@
+@import "variables";
+
+#navbar-container {
+  h1 {
+    @media (max-width: 600px) {
+      font-size: medium;
+    }
+    font-family: $font1;
+    font-size: xx-large;
+  }
+
+  .md-button {
+    font-weight: bold;
+
+    &:hover {
+      background-color: $accent;
+      color: $accent1;
+    }
+  }
+
+  md-toolbar {
+    background-color: $primary;
+  }
+}

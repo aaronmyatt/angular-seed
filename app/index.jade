@@ -1,1 +1,11 @@
+div(layout="row" layout-align="end center"
+    ng-if="vm.isLoggedIn" id="navbar-container")
+    md-toolbar
+        div(class="md-toolbar-tools")
+            h1
+                span For Adieb
+            gz-about-button
+            span(flex)
+            gz-add-memory-button
+
 content(ng-view)

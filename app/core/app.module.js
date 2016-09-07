@@ -8,7 +8,8 @@ angular.module("app", [
         "app.auth",
         "app.firebase-storage",
         "app.memory-brick",
-        "app.addmemory"
+        "app.addmemory",
+        "app.about"
     ])
 
     .filter("Round", Round);

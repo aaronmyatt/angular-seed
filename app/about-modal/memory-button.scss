@@ -1,0 +1,15 @@
+@import "../styles/variables";
+
+gz-add-memory-button {
+  .md-button.md-fab {
+    background-color: $accent;
+  }
+}
+
+md-dialog {
+  padding: 10px;
+
+  h2 {
+    text-align: center;
+  }
+}

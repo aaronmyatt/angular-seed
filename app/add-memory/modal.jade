@@ -1,4 +1,5 @@
-md-content(class="md-padding" layout-xs="column" layout-sm="column" layout="row" layout-align="space-between none")
+md-content(class="md-padding" layout-xs="column" layout-sm="column" layout-gt-sm="row"
+           layout-align="space-between none" id="add-memory-container")
     div(flex id="am-preview" layout="column" layout-align="center center" hide-gt-sm)
         img(ng-src="{{vm.file.$ngfBlobUrl}}" )
     div(flex)
@@ -22,4 +23,4 @@ md-content(class="md-padding" layout-xs="column" layout-sm="column" layout="row"
                     md-card-actions(layout="row" layout-align="end center")
                         md-button(class="md-raised md-primary" type="submit" ng-click="vm.submit()") Submit
     div(flex id="am-preview" hide show-gt-sm layout="column" layout-align="center center")
-        img(ng-src="{{vm.file.$ngfBlobUrl}}" )
+        img(ng-src="{{vm.file.$ngfBlobUrl}}")

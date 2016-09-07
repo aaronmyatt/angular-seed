@@ -1,5 +1,17 @@
-div(layout="row" layout-align="center center")
+div(layout="column" layout-align-gt-sm="center start" flex-offset-gt-sm="15"
+layout-align-lt-sm="center center" layout-padding id="auth-form-container")
     md-content
+        div(layout="row" layout-align="center center" ng-if="!vm.isLoggedIn" layout-wrap)
+            md-button(flex-xs flex-sm
+            id="login-button"
+            class="md-raised"
+            href="/#/login") LOGIN
+
+            md-button(flex-xs flex-sm
+            id="register-button"
+            class="md-raised"
+            href="/#/register") REGISTER
+
         form(name="authForm" ng-submit="authForm.$valid && vm.submitAction({user: vm.user})" class="form-signin" novalidate)
             h2(class="form-signin-heading" ng-bind="vm.formTitle")
 
@@ -26,11 +38,11 @@ div(layout="row" layout-align="center center")
                 p(ng-show="authForm.password.$error.required" class="text-danger") Password required
 
             section
-                md-button(class="md-raised md-primary" ng-bind="vm.formTitle" type="submit")
+                md-button(id="auth-form-submit" class="md-raised" ng-bind="vm.formTitle" type="submit")
 
 
-div(layout="row" layout-align="center center")
-    md-button(class="md-fab" ng-click="vm.oauthAction({provider: 'google'})")
-        ng-md-icon(icon="google-plus-box")
-    md-button(class="md-fab" ng-click="vm.oauthAction({provider: 'facebook'})")
-        ng-md-icon(icon="facebook")
+        div(layout="row" layout-align="center center")
+            md-button(id="fab-goog" class="md-fab" ng-click="vm.oauthAction({provider: 'google'})")
+                ng-md-icon(icon="google-plus-box")
+            md-button(id="fab-fb" class="md-fab" ng-click="vm.oauthAction({provider: 'facebook'})")
+                ng-md-icon(icon="facebook")

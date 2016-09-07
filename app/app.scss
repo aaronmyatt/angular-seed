@@ -3,7 +3,10 @@
 
 // Components
 @import "add-memory/memory-modal";
-@import "add-memory/memory-button.scss";
+@import "add-memory/memory-button";
+@import "about-modal/about-modal";
+@import "auth/auth-styles";
 
-@import "styles/grid-list.scss";
+@import "styles/grid-list";
 @import "styles/bricks";
+@import "styles/index";

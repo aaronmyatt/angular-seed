@@ -1,0 +1,26 @@
+@import "../styles/variables";
+
+#auth-form-container{
+  md-content {
+    border: ridge;
+    border-color: $accent;
+  }
+
+  #login-button, #fab-goog {
+    background-color: $secondary;
+    color: $accent1;
+  }
+
+  #register-button, #fab-fb {
+    background-color: $secondary1;
+    color: $accent1;
+  }
+
+  #auth-form-submit {
+    background-color: $accent1;
+    color: $secondary;
+  }
+
+
+}
+
