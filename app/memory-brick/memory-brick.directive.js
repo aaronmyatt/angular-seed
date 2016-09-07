@@ -27,23 +27,8 @@
         vm.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
 
         vm.showAdvanced = showAdvanced;
+        vm.limitMessageLength = limitMessageLength;
         vm.image = '';
-
-        function getImageUrl(memory){
-            FirebaseStorageService.getImageFromFileName(memory.file)
-                .then(success)
-                .catch(error);
-
-            function success(data){
-                console.log("_SUCCESS_", vm);
-                vm.memory.ref = data;
-                $scope.$apply();
-            }
-
-            function error(e){
-                console.log("_ERROR_", e);
-            }
-        }
 
         function showAdvanced(ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
@@ -77,12 +62,37 @@
             });
         }
 
+        function limitMessageLength(message){
+            if(message.length > 500){
+                var limit = message.substr(0, 500);
+                return limit + " ..."
+            }else{
+                return message;
+            }
+        }
+
 
         function init(){
             console.log('_gzMemoryBrickDirective_ init, ', vm);
             getImageUrl(vm.memory);
         }
         init();
+
+        function getImageUrl(memory){
+            FirebaseStorageService.getImageFromFileName(memory.file)
+                .then(success)
+                .catch(error);
+
+            function success(data){
+                console.log("_SUCCESS_", vm);
+                vm.memory.ref = data;
+                $scope.$apply();
+            }
+
+            function error(e){
+                console.log("_ERROR_", e);
+            }
+        }
     }
 
     DialogController.$inject = ["$scope", "$mdDialog", "$firebaseObject"];

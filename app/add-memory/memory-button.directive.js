@@ -80,6 +80,8 @@
         };
 
         vm.submit = function() {
+            var memory = {};
+
             if ($scope.form.file.$valid && vm.file) {
                 console.log("Passing file to _MemoryService_, ", vm.file);
                 var uploadTask = FirebaseStorageService.saveFile(vm.file);
@@ -96,7 +98,7 @@
                     var downloadURL = uploadTask.snapshot.downloadURL;
                     console.log("Uploadsuccess, ", downloadURL);
 
-                    var memory = {
+                    memory = {
                         message: vm.message,
                         file: vm.file.name,
                         imageHeight: vm.file.$ngfHeight,
@@ -106,11 +108,19 @@
                         timestamp: Date.now(),
                         remove: false
                     };
-
                     vm.saveMemory(memory);
-                    vm.hide();
                 });
+            }else{
+                memory = {
+                    message: vm.message,
+                    uploader_uid: auth.currentUser.uid,
+                    uploader_name: profileService.obj.display_name,
+                    timestamp: Date.now(),
+                    remove: false
+                };
+                vm.saveMemory(memory);
             }
+            vm.hide();
         };
 
         function init(){

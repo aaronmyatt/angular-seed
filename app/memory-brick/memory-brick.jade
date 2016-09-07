@@ -1,7 +1,9 @@
-div(ng-show="vm.memory.ref" md-whiteframe="1")
-  img(ng-src="{{vm.memory.ref}}"
-    ng-click="vm.showAdvanced($event)")
-  md-content
-    p(id="brick-message") {{vm.memory.message}}
+md-content(md-whiteframe="1")
+  div(ng-show="vm.memory.ref" ng-if="vm.memory.file" )
+    img(ng-src="{{vm.memory.ref}}"
+      ng-click="vm.showAdvanced($event)")
+    md-content
+      p(id="brick-message") {{vm.memory.message}}
 
-
+  md-content(ng-if="!vm.memory.file")
+    p(id="brick-message") {{vm.limitMessageLength(vm.memory.message)}}
