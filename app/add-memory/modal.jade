@@ -19,6 +19,8 @@ md-content(class="md-padding" layout-xs="column" layout-sm="column" layout-gt-sm
                         textarea(ng-model="vm.message"
                                  name="message" placeholder="Message" required autofocus
                                  rows="5" md-select-on-focus)
+                    text-angular(ng-model="vm.message")
+
 
                     md-card-actions(layout="row" layout-align="end center")
                         md-button(class="md-raised md-primary" type="submit" ng-click="vm.submit()") Submit

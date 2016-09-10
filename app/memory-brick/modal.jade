@@ -10,6 +10,6 @@ div(class="memory-modal")
         img(ng-show="vm.locals.memory.ref" ng-src="{{vm.locals.memory.ref}}" class="md-card-image")
         md-card-content
             div(layout="row" layout-align="center center")
-                p(class="") {{vm.locals.memory.message}}
+                p(ng-bind-html="vm.locals.memory.message" id="brick-message")
         small Created by: {{vm.locals.memory.uploader_name}}
         md-button(ng-click="vm.hide()") Close

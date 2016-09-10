@@ -5,6 +5,8 @@
         .module('app.addmemory', [
             "ngMaterial",
             "ngMdIcons",
-            "ngFileUpload"
+            "ngFileUpload",
+            // "angular-santize",
+            "textAngular"
         ])
 })();
