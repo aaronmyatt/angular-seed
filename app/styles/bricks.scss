@@ -14,4 +14,9 @@
   #text-only-brick {
     max-width: 500px;
   }
+
+  div:hover {
+    background-color: $accent;
+    cursor: pointer;
+  }
 }

@@ -9,20 +9,21 @@ md-content(class="md-padding" layout-xs="column" layout-sm="column" layout-gt-sm
                     md-card-title-text
                         h2 New Memory
                 md-card-content
-                    md-button(ng-model="vm.file" name="file" ngf-select ngf-pattern="'image/*'"
+                    md-button(ng-show="!vm.file" ng-model="vm.file" name="file" ngf-select ngf-pattern="'image/*'"
                               ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100") Select Image
+                    md-button(ng-show="vm.file" ng-click="vm.removeFile()") Remove Image
 
                     //Server authentication error
-                    p(ng-show="vm.error" class="text-danger" ng-bind="vm.error")
-
-                    md-input-container(class="md-block")
-                        textarea(ng-model="vm.message"
-                                 name="message" placeholder="Message" required autofocus
-                                 rows="5" md-select-on-focus)
-                    text-angular(ng-model="vm.message")
+                    //p(ng-show="vm.error" class="text-danger" ng-bind="vm.error")
+                    //md-input-container(class="md-block")
+                    text-angular(ng-model="vm.message" placeholder="Add your message here." required)
 
 
                     md-card-actions(layout="row" layout-align="end center")
                         md-button(class="md-raised md-primary" type="submit" ng-click="vm.submit()") Submit
     div(flex id="am-preview" hide show-gt-sm layout="column" layout-align="center center")
-        img(ng-src="{{vm.file.$ngfBlobUrl}}")
+        md-card
+            img(ng-src="{{vm.file.$ngfBlobUrl}}" class="md-card-image" ng-show="vm.file")
+            md-card-content
+                div(layout="row" layout-align="center center")
+                    p(ng-bind-html="vm.message" id="brick-message")

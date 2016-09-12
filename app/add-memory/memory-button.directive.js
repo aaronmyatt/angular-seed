@@ -62,6 +62,7 @@
         vm.memories = [];
         vm.file = '';
         vm.message = '';
+        vm.removeFile = removeFile;
 
         vm.hide = function () {
             $mdDialog.hide();
@@ -122,6 +123,11 @@
             }
             vm.hide();
         };
+
+        function removeFile(){
+            console.log("removeFile");
+            vm.file = '';
+        }
 
         function init(){
             var database = firebase.database().ref('memories');
