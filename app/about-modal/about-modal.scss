@@ -1,7 +1,6 @@
 #about-image {
   img {
-    width: auto;
-    max-height: 600px;
+    max-width: 100%;
     display: block;
   }
   @media (max-width: 600px) {

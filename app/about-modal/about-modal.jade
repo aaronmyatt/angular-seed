@@ -5,8 +5,8 @@
 - var para5 = "I plan to add more features. Perhaps allow commenting and discussions over a particular memory, or add the ability to share memories on other sites. If you have some suggestions or find a problem, please get in touch."
 - var para6 = ""
 
-md-content(class="md-padding" layout-xs="column" layout-sm="column" layout="row" layout-align="space-between none")
-    div(flex layout="row" layout-align="center center")
+md-content(class="md-padding" layout-xs="column" layout-sm="column" layout="row" layout-align="space-between none" layout-padding layout-margin)
+    div(flex-gt-sm="50" layout="row" layout-align="center center")
         md-content(flex)
             h1 This is for Adieb
             p= para1
@@ -18,5 +18,5 @@ md-content(class="md-padding" layout-xs="column" layout-sm="column" layout="row"
             h2 Future
             p= para5
 
-    div(id="about-image")
-        img(ng-src="https://firebasestorage.googleapis.com/v0/b/remin-f1785.appspot.com/o/main%2Fswimmerdieb.jpg?alt=media&token=5ff8d597-3593-4aea-ae87-2040447b110a" )
+    div(flex-gt-sm="50" id="about-image" layout="row" layout-align="center center")
+        img(flex ng-src="https://firebasestorage.googleapis.com/v0/b/remin-f1785.appspot.com/o/main%2Fswimmerdieb.jpg?alt=media&token=5ff8d597-3593-4aea-ae87-2040447b110a" )
