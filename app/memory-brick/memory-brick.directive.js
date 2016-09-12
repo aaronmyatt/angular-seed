@@ -19,8 +19,8 @@
         };
     }
 
-    Controller.$inject = ["FirebaseStorageService", "$scope", "$mdDialog", "$mdMedia"];
-    function Controller(FirebaseStorageService, $scope, $mdDialog, $mdMedia) {
+    Controller.$inject = ["FirebaseStorageService", "$scope", "$mdDialog", "$mdMedia", "CutFilter"];
+    function Controller(FirebaseStorageService, $scope, $mdDialog, $mdMedia, CutFilter) {
         var vm = this;
 
         vm.status = '  ';

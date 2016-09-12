@@ -1,14 +1,28 @@
-#add-memory-container{
+@import "../styles/variables";
+
+#am-modal{
   md-card {
+    border: inset;
+    border-color: $secondary1;
+
     @media (min-width: 600px) {
       width: 500px;
+    }
+  }
+
+  .ta-editor {
+    background-color: #9BBECD;
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
     }
   }
 }
 
 #am-preview {
   img {
-    width: auto;
+    //width: auto;
     max-height: 600px;
     display: block;
   }

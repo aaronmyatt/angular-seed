@@ -1,1 +1,1 @@
-#grid #brick-message{text-align:center}#grid img{max-height:400px;display:block}@media (max-width:600px){#grid img{width:100%}}
+#grid .brick-message{text-align:center}#grid img{max-height:400px;display:block}@media (max-width:600px){#grid img{width:100%}}#grid .text-only-brick{max-width:500px}#grid div:hover{background-color:#847963;cursor:pointer}

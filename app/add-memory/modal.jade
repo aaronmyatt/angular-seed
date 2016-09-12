@@ -1,7 +1,8 @@
-md-content(class="md-padding" layout-xs="column" layout-sm="column" layout-gt-sm="row"
-           layout-align="space-between none" id="add-memory-container")
+md-content(id="am-modal" class="md-padding" layout-xs="column" layout-sm="column" layout-gt-sm="row"
+           layout-align="space-between none")
     div(flex id="am-preview" layout="column" layout-align="center center" hide-gt-sm)
-        img(ng-src="{{vm.file.$ngfBlobUrl}}" )
+        img(ng-src="{{vm.file.$ngfBlobUrl}}" ng-show="vm.file")
+
     div(flex)
         md-card
             form(name="form")
@@ -10,8 +11,8 @@ md-content(class="md-padding" layout-xs="column" layout-sm="column" layout-gt-sm
                         h2 New Memory
                 md-card-content
                     md-button(ng-show="!vm.file" ng-model="vm.file" name="file" ngf-select ngf-pattern="'image/*'"
-                              ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100") Select Image
-                    md-button(ng-show="vm.file" ng-click="vm.removeFile()") Remove Image
+                              ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" class="md-raised") Select Image
+                    md-button(ng-show="vm.file" ng-click="vm.removeFile()" class="md-warn md-raised") Remove Image
 
                     //Server authentication error
                     //p(ng-show="vm.error" class="text-danger" ng-bind="vm.error")
@@ -22,6 +23,7 @@ md-content(class="md-padding" layout-xs="column" layout-sm="column" layout-gt-sm
                     md-card-actions(layout="row" layout-align="end center")
                         md-button(class="md-raised md-primary" type="submit" ng-click="vm.submit()") Submit
     div(flex id="am-preview" hide show-gt-sm layout="column" layout-align="center center")
+        h2 Preview
         md-card
             img(ng-src="{{vm.file.$ngfBlobUrl}}" class="md-card-image" ng-show="vm.file")
             md-card-content

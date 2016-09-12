@@ -1,5 +1,7 @@
+@import "variables";
+
 #grid {
-  #brick-message {
+  .brick-message {
     text-align: center;
   }
   img {
@@ -11,7 +13,7 @@
     }
   }
 
-  #text-only-brick {
+  .text-only-brick {
     max-width: 500px;
   }
 

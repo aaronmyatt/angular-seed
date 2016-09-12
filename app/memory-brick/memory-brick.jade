@@ -1,13 +1,12 @@
-md-content(md-whiteframe="1")
+md-content(md-whiteframe="1" class="brick")
 
   // Memory brick template if an image is present
-  div(ng-show="vm.memory.ref" ng-if="vm.memory.file" )
+  div(ng-show="vm.memory.ref" ng-if="vm.memory.file")
     img(ng-src="{{vm.memory.ref}}"
       ng-click="vm.showAdvanced($event)")
-    md-content
-      p(id="brick-message") {{vm.memory.message}}
+    md-content(class="brick-message" ng-bind-html="vm.memory.message | Cut:true:250")
 
   // Text only memory brick template
-  md-content(ng-if="!vm.memory.file" id="text-only-brick" ng-click="vm.showAdvanced($event)")
-    p(ng-bind-html="vm.memory.message" id="brick-message")
+  md-content(ng-if="!vm.memory.file" class="text-only-brick" ng-click="vm.showAdvanced($event)")
+    p(ng-bind-html="vm.memory.message | Cut:true:1250"  class="brick-message")
 

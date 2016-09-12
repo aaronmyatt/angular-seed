@@ -2,5 +2,8 @@
     'use strict';
 
     angular
-        .module('app.memory-brick', []);
+        .module('app.memory-brick', [
+            // "angular-santize",
+            "textAngular"
+        ]);
 })();

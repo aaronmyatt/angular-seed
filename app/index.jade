@@ -9,3 +9,34 @@ div(layout="row" layout-align="end center"
             gz-add-memory-button
 
 content(ng-view)
+
+
+script.
+    function getAllBrickMessages() {
+        return document.getElementsByClassName('brick-message');
+    }
+
+    function setMessageWidth(bricks) {
+
+        for (var i = 0; i < bricks.length; i++) {
+            var current = bricks[i];
+            if (i != undefined) {
+                try {
+                    var image = current.parentElement.getElementsByTagName('img')[0]
+                    current.style.width = (image.width + 'px');
+                } catch (e) {
+                    console.log('NEIN!');
+                }
+            }
+        }
+    }
+
+    (function(){
+        setInterval(
+                function(){
+                    var bricks = getAllBrickMessages();
+                    setMessageWidth(bricks);
+                },
+                5000
+        )
+    })();

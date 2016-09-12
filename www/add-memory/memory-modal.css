@@ -1,1 +1,1 @@
-#am-preview img{width:auto;max-height:600px;display:block}@media (max-width:600px){#am-preview img{width:auto;max-height:400px;display:block}}
+#am-modal md-card{border:inset;border-color:#0B0A4E}@media (min-width:600px){#am-modal md-card{width:500px}}#am-modal .ta-editor{background-color:#9BBECD}#am-modal .ta-editor:hover,#am-modal .ta-editor:focus{background-color:transparent}#am-preview img{max-height:600px;display:block}@media (max-width:600px){#am-preview img{width:auto;max-height:400px;display:block}}
