@@ -1,4 +1,4 @@
-md-content(id="am-modal" class="md-padding" layout-xs="column" layout-sm="column" layout-gt-sm="row"
+md-content(id="am-modal" class="md-padding" layout-xs="column" layout-sm="column" layout-gt-sm="row" ng-init="vm.addText = false"
            layout-align="space-between none")
     div(flex id="am-preview" layout="column" layout-align="center center" hide-gt-sm)
         img(ng-src="{{vm.file.$ngfBlobUrl}}" ng-show="vm.file")
@@ -8,23 +8,37 @@ md-content(id="am-modal" class="md-padding" layout-xs="column" layout-sm="column
             form(name="form")
                 md-card-title
                     md-card-title-text
-                        h2 New Memory
-                md-card-content
-                    md-button(ng-show="!vm.file" ng-model="vm.file" name="file" ngf-select ngf-pattern="'image/*'"
-                              ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100" class="md-raised") Select Image
-                    md-button(ng-show="vm.file" ng-click="vm.removeFile()" class="md-warn md-raised") Remove Image
+                        h2 Create a new memory
+                md-list
+                    md-list-item(class="secondary-button-padding" ng-show="!vm.file")
+                        h4 Add a picture
+                        md-button(class="md-secondary md-raised" ng-model="vm.file" name="file" ngf-select ngf-pattern="'image/*'"
+                                  ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100") Select Image
+
+                    md-list-item(class="secondary-button-padding" ng-show="vm.file")
+                        h4 Add a picture
+                        md-button(class="md-secondary md-warn md-raised" ng-show="vm.file" ng-click="vm.removeFile()") Remove Image
+
+                    md-list-item(class="secondary-button-padding")
+                        h4 Write a story
+                        md-button(class="md-secondary md-raised" ng-click="vm.addText = !vm.addText") Add Text
+
+                    md-list-item(ng-hide="vm.file || vm.message")
+                        h4 Combine them both!
 
                     //Server authentication error
                     //p(ng-show="vm.error" class="text-danger" ng-bind="vm.error")
                     //md-input-container(class="md-block")
-                    text-angular(ng-model="vm.message" placeholder="Add your message here." required)
+                    div
+                        text-angular(ng-model="vm.message" placeholder="Add your message here." required ng-show="vm.addText")
+                        md-card-actions(layout="row" layout-align="end center" ng-show="vm.file || vm.message")
+                            md-button(class="md-raised md-primary" type="submit" ng-click="vm.submit()") Submit
+    div(flex id="am-preview" hide show-gt-sm layout="column" layout-align="center center" ng-show="vm.file || vm.message")
 
-
-                    md-card-actions(layout="row" layout-align="end center")
-                        md-button(class="md-raised md-primary" type="submit" ng-click="vm.submit()") Submit
-    div(flex id="am-preview" hide show-gt-sm layout="column" layout-align="center center")
-        h2 Preview
         md-card
+            md-card-title
+                md-card-title-text
+                    h2 Preview
             img(ng-src="{{vm.file.$ngfBlobUrl}}" class="md-card-image" ng-show="vm.file")
             md-card-content
                 div(layout="row" layout-align="center center")
