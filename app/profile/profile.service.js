@@ -38,7 +38,7 @@
         
         function updateDisplayName(name){
             service.obj.display_name = name;
-            return obj.$save();
+            return service.obj.$save();
         }
         
         function setup(uid){
