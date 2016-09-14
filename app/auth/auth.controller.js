@@ -15,6 +15,7 @@
     vm.register = register;
     vm.login = login;
     vm.submitOAuth = submitOAuth;
+    vm.createProfile = createProfile;
 
     function register(user) {
       return authService.register(user)
