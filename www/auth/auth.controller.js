@@ -53,7 +53,7 @@
       function googleLogin(){
         firebase.auth().signInWithRedirect(googleProvider).then(function(result) {
           var user = result.user;
-          createProfile(user);
+          vm.createProfile(user);
           $location.path('/');
           console.log("Google Login Success", user);
         }).catch(function(error) {
@@ -65,7 +65,7 @@
       function facebookLogin(){
         firebase.auth().signInWithPopup(facebookProvider).then(function(result) {
           var user = result.user;
-          createProfile(user);
+          vm.createProfile(user);
           $location.path('/');
           console.log("Facebook Login Success", user);
         }).catch(function(error) {
