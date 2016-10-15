@@ -15,7 +15,7 @@
         firebaseAuthObject.$onAuthStateChanged(function(authData) {
             if (authData) {
                 console.log("Setup Profile Service");
-                profileService.setup(authData.uid);
+                profileService.setup(authData);
             }
         });
     };
@@ -47,12 +47,16 @@
             return service.obj.$save();
         }
         
-        function setup(uid){
-            console.log("Init ProfileService");
+        function setup(user){
+            var uid = user.uid;
             var profile = firebase.database().ref('profile/'+uid);
             var uploads = firebase.database().ref('profile/'+uid+'/uploads');
             service.obj = $firebaseObject(profile);
             service.uploads = $firebaseArray(uploads);
+            console.log("Init ProfileService", service.obj);
+            if (service.obj.display_name == undefined) {
+                service.createProfile(user);
+            }
         }
     }
 })();
