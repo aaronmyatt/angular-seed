@@ -26,17 +26,23 @@
 
         service.obj = null;
         service.uploads = null;
+        service.createProfile = createProfile;
         service.updateUploads = updateUploads;
         service.updateDisplayName = updateDisplayName;
         service.setup = setup;
 
         return service;
 
+        function createProfile(user){
+            var emailBeforeAtSign = user.email.slice(0, user.email.lastIndexOf('@'));
+            var obj = service.updateDisplayName(emailBeforeAtSign);
+        }
+
         function updateUploads(upload){
             return service.uploads.$add(upload);
         }
         
-        function updateDisplayName(name){
+        function updateDisplayName(name) {
             service.obj.display_name = name;
             return service.obj.$save();
         }
