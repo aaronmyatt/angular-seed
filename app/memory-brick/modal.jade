@@ -3,8 +3,8 @@
 div(class="memory-modal")
     div(layout="row" layout-align="end center")
         span(ng-if="vm.isUploader()")
-            md-button(ng-click="vm.remove()") Delete
-        md-button(ng-click="vm.hide()")
+            md-button(ng-click="vm.remove()" class="md-raised") Delete
+        md-button(ng-click="vm.hide()" class="md-raised")
             ng-md-icon(icon="close" size="24")
     md-card
         img(ng-show="vm.locals.memory.ref" ng-src="{{vm.locals.memory.ref}}" class="md-card-image")
