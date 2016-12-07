@@ -29,12 +29,19 @@
 
         function showAdvanced(ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && vm.customFullscreen;
+            var template = function(){
+                if($mdMedia('sm') || $mdMedia('xs')){
+                    return "add-memory/modal-disabled.html"
+                }else{
+                    return 'add-memory/modal.html'
+                }
+            };
             console.log("AddMemory Modal Opened");
 
             $mdDialog.show({
                 controller: DialogController,
                 controllerAs: 'vm',
-                templateUrl: 'add-memory/modal.html',
+                templateUrl: template(),
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
